@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "我的-1",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "z-paging": "/uni_modules/z-paging/components/z-paging/z-paging",
+    "u-button": "/uni_modules/uview-ui/components/u-button/u-button",
+    "nav-bar": "/components/nvabar/inde"
+  }
+}

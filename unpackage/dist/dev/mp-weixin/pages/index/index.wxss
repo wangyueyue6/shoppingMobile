@@ -1,0 +1,23 @@
+
+.home-page {
+	width: 100%;
+	min-height: 100vh;
+	background-color: #f1f4f7;
+}
+.content {
+	flex: 1;
+	  overflow-y: auto;
+}
+.text-area {
+	display: flex;
+	justify-content: center;
+}
+.title {
+	font-size: 36rpx;
+	color: #8f8f94;
+}
+.img-box {
+	width: 50rpx;
+	height: 50rpx;
+}
+

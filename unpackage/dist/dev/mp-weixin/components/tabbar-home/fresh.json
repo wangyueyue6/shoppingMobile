@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "active-product": "/components/active-product/index"
+  }
+}

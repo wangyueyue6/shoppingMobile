@@ -1,0 +1,1 @@
+<view class="robotBox"><nav-bar vue-id="d0a39cd2-1" scrollTop="{{scrollTop}}" bind:__l="__l"></nav-bar><view class="topBox"><image src="../../static/imgs/robot.png" mode></image><view class="titleBox"><view class="title">Hi~,我是您的专属客服！</view><view class="subtitle">小秘书为您服务</view></view></view><view class="dialogueBox"><chat vue-id="d0a39cd2-2" bind:__l="__l"></chat></view></view>

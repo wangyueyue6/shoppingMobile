@@ -1,0 +1,37 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages/demo/index",
+			"style" :
+			{
+				"navigationBarTitleText" : "我的-1",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages/service/index",
+			"style" :
+			{
+				"navigationBarTitleText" : "客服",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "custom"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "有妙商城",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}

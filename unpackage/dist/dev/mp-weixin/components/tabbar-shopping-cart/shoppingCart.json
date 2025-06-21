@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider",
+    "u-empty": "/uni_modules/uview-ui/components/u-empty/u-empty",
+    "u-radio-group": "/uni_modules/uview-ui/components/u-radio-group/u-radio-group",
+    "u-radio": "/uni_modules/uview-ui/components/u-radio/u-radio",
+    "u-button": "/uni_modules/uview-ui/components/u-button/u-button",
+    "goods-list-vue": "/components/tabbar-shopping-cart/goodsList"
+  }
+}

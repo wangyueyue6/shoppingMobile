@@ -1,0 +1,126 @@
+// 公共样式类
+.bg-white {
+  background-color: #ffffff;
+}
+
+.bg-ccc {
+  background-color: #ccc;
+}
+
+.bg-f6 {
+  background-color: #f6f6f6;
+}
+
+.m-b-10 {
+  margin-bottom: 20rpx;
+}
+
+.m-b-16 {
+  margin-bottom: 32rpx;
+}
+
+.m-b-20 {
+  margin-bottom: 40rpx;
+}
+
+.m-b-30 {
+  margin-bottom: 50rpx;
+}
+
+.margin-around {
+	margin: 40rpx;
+}
+
+.p-b-10 {
+  padding-bottom: 20rpx;
+}
+
+.p-b-16 {
+  padding-bottom: 32rpx;
+}
+
+.p-b-20 {
+  padding-bottom: 40rpx;
+}
+
+.p-b-30 {
+  padding-bottom: 60rpx;
+}
+
+.padding-around {
+	padding: 40rpx;
+}
+
+// 盒子布局
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-one {
+  flex: 1;
+}
+
+.flex-middle {
+  align-items: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.flex-around {
+  justify-content: space-around;
+}
+
+// 文本
+.center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.bolder {
+  font-weight: bolder;
+}
+
+.small {
+  font-size: 24rpx;
+}
+
+.big {
+  font-size: 32rpx;
+}
+
+.text-color-info {
+  color: #bfbfbf;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 定位
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}

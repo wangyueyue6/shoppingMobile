@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "客服",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "chat": "/components/chat/index",
+    "nav-bar": "/components/nvabar/inde"
+  }
+}
