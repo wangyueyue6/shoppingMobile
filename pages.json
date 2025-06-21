@@ -25,6 +25,15 @@
 				"enablePullDownRefresh" : false,
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path" : "pages/goods-detail/index",
+			"style" :
+			{
+				"navigationBarTitleText" : "详情",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {

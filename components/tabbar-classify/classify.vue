@@ -58,8 +58,7 @@
 				    <!-- 如果是商品 -->
 				    <template>
 				        <view class="product-list">
-				            <product-item v-for="product in products" :key="product.id" :product="product"
-				                @click="handleProductClick" />
+				            <product-item :products="products" @onClick="handleProductClick" />
 				        </view>
 				
 				        <!-- 加载更多 -->
@@ -267,7 +266,7 @@ export default {
         handleProductClick(product) {
             console.log('点击商品:', product)
             uni.navigateTo({
-                url: `/pages/product/detail?id=${product.id}`
+                url: `/pages/goods-detail/index?id=${product.id}`
             })
         },
 
@@ -399,8 +398,9 @@ export default {
                 }
     
                 .product-list {
-                    display: flex;
-                    flex-wrap: wrap;
+                    // display: flex;
+                    // flex-wrap: wrap;
+					width: 100%;
                 }
     
                 .load-more {
