@@ -1,5 +1,5 @@
 <template>
-    <view class="home">
+    <view class="home" :style="{height: (contentHeight - 20) + 'rpx'}">
         <view class="top-search">
         	<view class="search-box">
         	    <u-icon name="search" color="#999999" size="26"></u-icon>
@@ -22,11 +22,11 @@
 		</view>
         <!-- 限时秒杀 -->
         <view class="module-box">
-            <Seckill />
+            <Seckill ref="seckillRef" />
         </view>
 		<!-- 限时抢购 -->
 		<view class="module-box margin-t">
-			<SnaggingShopping />
+			<SnaggingShopping ref="shoppingRef" />
 		</view>
 		<!-- 数码产品 -->
 		<view class="module-box margin-t">
@@ -50,6 +50,7 @@ import SnaggingShopping from './snagging-shopping.vue'
 import Numerical from './numerical.vue'
 import BeautyMakeup from './beautyMakeup.vue'
 import Fresh from './fresh.vue'
+import { getVisibleArea } from '@/utils/tool.js'
 export default {
     name: 'Home',
     components: {
@@ -66,7 +67,7 @@ export default {
 				'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
 				'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
 			],
-			
+			contentHeight: 0,
 			activeList: activeList
         }
     },
@@ -78,7 +79,13 @@ export default {
 
     },
     mounted() {
-        
+        const height = getVisibleArea()
+        // 去除顶部搜索框高度
+        this.contentHeight = height
+        uni.onWindowResize(() => {
+            const height = getVisibleArea()
+            this.contentHeight = height
+        })
     },
     methods: {
         handleSearch(e) {
@@ -95,6 +102,7 @@ export default {
 <style scoped lang="scss">
 .home {
     position: relative;
+	overflow-y: auto;
     padding-bottom: 40rpx;
 	
 	.top-search {

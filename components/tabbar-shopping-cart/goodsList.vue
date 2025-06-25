@@ -76,6 +76,10 @@ export default {
         onSelect(item, index) {
 			this.$emit('updateList', index)
         },
+		
+		valChange () {
+			
+		}
     },
 }
 </script>

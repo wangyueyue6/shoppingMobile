@@ -9,11 +9,12 @@
                 </view>
             </view>
 			<u-count-down
-				:time="30 * 60 * 60 * 1000"
+				:time="remainingTime"
 				format="HH:mm:ss"
 				autoStart
 				millisecond
 				@change="onChange"
+				@finish="onFinish"
 			>
 				<view class="time-box flex flex-middle">
 					<view class="time-custom flex">
@@ -39,6 +40,7 @@
 					v-for="(item, index) in 5"
 					:key="index"
 					class="product-item"
+					@click="onClick"
 				>
 					<image src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg" mode="aspectFill" class="img-box"></image>
 				</view>
@@ -54,7 +56,9 @@ export default {
     },
     data() {
         return {
-			timeData: {}
+			timeData: {},
+			remainingTime: 6 * 60 * 60 * 1000,
+			lastLeaveTime: null,
         }
     },
     props: {
@@ -66,15 +70,73 @@ export default {
     computed: {
 
     },
+	onHide() {
+		console.log('1111111111');
+		// 页面隐藏时记录离开时间
+		this.lastLeaveTime = Date.now();
+		uni.setStorageSync('seckill_countdown_leave_time', this.lastLeaveTime.toString());
+		uni.setStorageSync('seckill_countdown_remaining', JSON.stringify(this.timeData));
+	},
+	onUnload() {
+		console.log('2222222222');
+		// 页面卸载时记录离开时间
+		this.lastLeaveTime = Date.now();
+		uni.setStorageSync('seckill_countdown_leave_time', this.lastLeaveTime.toString());
+		uni.setStorageSync('seckill_countdown_remaining', JSON.stringify(this.timeData));
+	},
     created() {
-
+		this.checkRemainingTime()
     },
     mounted() {
 
     },
+	beforeDestroy() {
+	    this.lastLeaveTime = Date.now();
+	    uni.setStorageSync('seckill_countdown_leave_time', this.lastLeaveTime.toString());
+	    uni.setStorageSync('seckill_countdown_remaining', JSON.stringify(this.timeData));
+	},
     methods: {
+		// 切换tab时保存时间
+		saveRemainingTime () {
+			this.lastLeaveTime = Date.now();
+			uni.setStorageSync('seckill_countdown_leave_time', this.lastLeaveTime.toString());
+			uni.setStorageSync('seckill_countdown_remaining', JSON.stringify(this.timeData));
+		},
 		onChange(e) {
 			this.timeData = e
+			uni.setStorageSync('seckill_countdown_remaining', JSON.stringify(e));
+		},
+
+		onFinish () {
+			uni.removeStorageSync('seckill_countdown_remaining');
+			uni.removeStorageSync('seckill_countdown_leave_time');
+		},
+		
+		onClick () {
+			uni.navigateTo({
+			    url: `/pages/goods-detail/index?id=1`
+			})
+		},
+
+		checkRemainingTime() {
+			// 初始化时从本地存储读取剩余时间和上次离开时间
+			const savedTime = uni.getStorageSync('seckill_countdown_remaining');
+			const savedLeaveTime = uni.getStorageSync('seckill_countdown_leave_time');
+			if (savedTime && savedLeaveTime) {
+				const leaveTime = parseInt(savedLeaveTime);
+				const now = Date.now();
+				const timePassed = now - leaveTime;
+				
+				// 解析保存的时间数据
+				const { hours, minutes, seconds, milliseconds } = JSON.parse(savedTime);
+				const totalRemaining = (hours * 3600 + minutes * 60 + seconds) * 1000 + milliseconds;
+				
+				// 计算新的剩余时间（减去离开期间的时间）
+				const newRemaining = totalRemaining - timePassed;
+				
+				// 如果时间已经过期，设置为0
+				this.remainingTime = newRemaining > 0 ? newRemaining : 0;
+			}
 		},
 
         getH1 (hour) {

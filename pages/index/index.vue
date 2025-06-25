@@ -110,6 +110,7 @@
 				})
 			},
 		},
+		
 		//监听用户页面滑动
 		onPageScroll(e) {
 			this.scrollTop = e.scrollTop;

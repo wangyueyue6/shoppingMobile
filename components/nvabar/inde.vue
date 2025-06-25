@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<u-navbar fixed safeAreaInsetTop :placeholder="placeholder" :title="title" :title-style="titleStyle" :leftText="leftText" :autoBack="showBack"
-			:leftIcon="showBack ? 'arrow-left': ''" :border="false" :bgColor="`rgb(255 255 255 / ${isScrollTop}%)`">
+			:leftIcon="showBack ? 'arrow-left': ''" :border="false" :bgColor="`rgb(255 255 255)`">
 			<view class="u-nav-slot" slot="right">
 				<view class="rightItem" v-for="(item,index) in rightText" :key="index" @click="rightClick(item,index)">{{item}}</view>
 			</view>

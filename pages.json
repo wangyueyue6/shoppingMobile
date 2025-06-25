@@ -34,6 +34,15 @@
 				"enablePullDownRefresh" : false,
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path" : "pages/place-order/index",
+			"style" :
+			{
+				"navigationBarTitleText" : "确认下单",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {
